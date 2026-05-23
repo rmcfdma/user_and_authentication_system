@@ -1,19 +1,39 @@
-# Python
-__pycache__/
-*.pyc
-.venv/
+# =====================
+# BACKEND
+# =====================
+backend/.env
+backend/.env.*
+backend/__pycache__/
+backend/.venv/
+backend/*.pyc
 
-# Node
-node_modules/
-.nuxt/
-dist/
+# =====================
+# FRONTEND (Nuxt)
+# =====================
+frontend/.output/
+frontend/.data/
+frontend/.nuxt/
+frontend/.nitro/
+frontend/.cache/
+frontend/dist/
+frontend/node_modules/
+frontend/logs/
+frontend/*.log
 
-# Env
+# Env (frontend também pode ter)
+frontend/.env
+frontend/.env.*
+!frontend/.env.example
+
+# =====================
+# GLOBAL
+# =====================
 .env
 .env.*
+!.env.example
 
-# IDE
+# IDE / OS
 .vscode/
-
-# Logs
-*.log
+.idea/
+.DS_Store
+.fleet
