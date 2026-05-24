@@ -1,13 +1,13 @@
-# Auth System — Full Stack User Management
+# Módulo de Atenticação
 
-Sistema full stack para autenticação e gerenciamento de usuários utilizando FastAPI no backend e Nuxt no frontend, com autenticação JWT, integração com Supabase e arquitetura moderna baseada em APIs.
+Sistema full stack para autenticação e gerenciamento de usuários utilizando FastAPI no backend e Nuxt 4 no frontend, com autenticação JWT, integração com Supabase e arquitetura moderna baseada em APIs.
 
 ---
 
-## 🚀 Tecnologias Utilizadas
+## Tecnologias Utilizadas
 
 ### Backend
-- Python
+- Python 3.13
 - FastAPI
 - FastAPI Users
 - SQLAlchemy
@@ -15,6 +15,8 @@ Sistema full stack para autenticação e gerenciamento de usuários utilizando F
 - Async/Await
 - PostgreSQL
 - Supabase
+- Resend
+- Pydantic 
 
 ### Frontend
 - Nuxt 4.4.4
@@ -24,56 +26,115 @@ Sistema full stack para autenticação e gerenciamento de usuários utilizando F
 
 ---
 
-# 📌 Sobre o Projeto
+# Sobre o Projeto
 
 Este projeto foi desenvolvido com o objetivo de fornecer uma estrutura moderna e escalável para autenticação e gerenciamento de usuários.
 
 A aplicação implementa:
 
-- Registro de usuários
+- Gerenciamento de usuários
 - Login com JWT
 - Autenticação baseada em tokens
-- Gerenciamento de usuários
 - Recuperação de senha
 - Verificação de e-mail
 - Integração entre frontend e backend
 - API assíncrona utilizando FastAPI
 - Persistência de dados com Supabase/PostgreSQL
+- Validação de dados com schemas Pydantic
 
 O sistema foi construído seguindo boas práticas de arquitetura backend e frontend, utilizando validação tipada, autenticação segura e comunicação desacoplada via API REST.
 
 ---
 
-# 🏗️ Arquitetura
+# Arquitetura
 
-```text
-Frontend (Nuxt 4)
-        ↓
- REST API
-        ↓
-Backend (FastAPI)
-        ↓
-SQLAlchemy ORM
-        ↓
-Supabase PostgreSQL
+```mermaid
+flowchart TB
+
+    %% =========================
+    %% FRONTEND
+    %% =========================
+    subgraph FRONTEND["Frontend Layer"]
+        NUXT["Nuxt 4.4.4"]
+        UI["Nuxt UI 4.7.1"]
+        ZOD["Zod Validation"]
+        PAGES["Authentication & User Management"]
+    end
+
+    %% =========================
+    %% API GATEWAY
+    %% =========================
+    API["REST API / HTTPS"]
+
+    %% =========================
+    %% BACKEND
+    %% =========================
+    subgraph BACKEND["Backend Layer"]
+        FASTAPI["FastAPI"]
+        USERS["FastAPI Users"]
+        JWT["JWT Authentication"]
+        PYDANTIC["Pydantic Validation"]
+        SERVICES["Business Logic / Service Layer"]
+    end
+
+    %% =========================
+    %% PERSISTENCE
+    %% =========================
+    subgraph PERSISTENCE["Persistence Layer"]
+        SQLA["SQLAlchemy ORM"]
+        ASYNC["Async DB Sessions"]
+        REPOSITORY["Repository Pattern"]
+    end
+
+    %% =========================
+    %% DATABASE
+    %% =========================
+    subgraph DATABASE["Database Layer"]
+        SUPABASE["Supabase PostgreSQL"]
+        TABLES["Users & Application Tables"]
+    end
+
+    %% =========================
+    %% FLOWS
+    %% =========================
+    FRONTEND --> API
+    API --> BACKEND
+    BACKEND --> PERSISTENCE
+    PERSISTENCE --> DATABASE
+
+    %% Internal Backend Flow
+    FASTAPI --> USERS
+    FASTAPI --> JWT
+    FASTAPI --> PYDANTIC
+    FASTAPI --> SERVICES
+
+    %% Persistence Flow
+    SERVICES --> SQLA
+    SQLA --> ASYNC
+    SQLA --> REPOSITORY
+
+    %% Database Flow
+    REPOSITORY --> SUPABASE
+    SUPABASE --> TABLES
 ```
 
 ---
 
-# 🔐 Funcionalidades
+# Funcionalidades
 
 ## Autenticação
-- Cadastro de usuários
 - Login
 - Logout
+- Autenticação JWT
 - Refresh Token
 - Proteção de rotas
-- Autenticação JWT
 
 ## Usuários
+- Cadastro de usuários
+- Edição de perfil
+- Exclusão de perfil
 - Consulta de perfil
-- Atualização de dados
-- Gerenciamento de usuários
+
 
 ## Segurança
 - Hash de senhas
