@@ -110,46 +110,46 @@ sequenceDiagram
     %% =========================
 
     User->>Frontend: Página de Login
-    Frontend->>Frontend: Validação do formulário com Zod
+    Frontend->>Frontend: Validação do Formulário com Zod
 
     Frontend->>API: POST /auth/jwt/login
 
-    API->>Validation: Validate Request Schema
-    Validation-->>API: Validated Data
+    API->>Validation: Schema de Validação da Requisição
+    Validation-->>API: Dado Validado
 
-    API->>Auth: Authenticate User Credentials
+    API->>Auth: Credenciais para Autenticação do Usuário
 
-    Auth->>ORM: Query User
+    Auth->>ORM: Buscar Usuário
     ORM->>DB: SELECT user by email
-    DB-->>ORM: User Data
+    DB-->>ORM: Dados do Usuário
     ORM-->>Auth: User Entity
 
-    Auth->>Auth: Verify Password
-    Auth->>Auth: Generate JWT Token
+    Auth->>Auth: Verificar Senha
+    Auth->>Auth: Gerar JWT Token
 
-    Auth-->>API: Authenticated User + JWT
-    API-->>Frontend: Return Access Token
+    Auth-->>API: Usuário autenticado + JWT
+    API-->>Frontend: Retorna Access Token
 
-    Frontend->>Frontend: Store JWT Token
+    Frontend->>Frontend: Armazena JWT Token
 
     %% =========================
     %% AUTHENTICATED REQUEST
     %% =========================
 
-    User->>Frontend: Access Protected Route
+    User->>Frontend:Acesso à rota protegida
 
     Frontend->>API: GET /users/me (JWT)
 
-    API->>Auth: Validate JWT Token
-    Auth-->>API: Authenticated User
+    API->>Auth: Validar JWT Token
+    Auth-->>API: Usuário Autenticado
 
-    API->>ORM: Fetch User Data
+    API->>ORM: Busca Dados do Usuário
     ORM->>DB: SELECT user
-    DB-->>ORM: User Record
-    ORM-->>API: User Object
+    DB-->>ORM: Registro do Usuário
+    ORM-->>API: Objeto Usuario(User)
 
-    API-->>Frontend: Return User Data
-    Frontend-->>User: Render Dashboard
+    API-->>Frontend: Retorna os Dados do Usuário
+    Frontend-->>User: Renderiza Página
 ```
 
 ---
