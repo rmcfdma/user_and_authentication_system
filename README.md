@@ -67,12 +67,12 @@ flowchart LR
     end
 
     %% Persistence
-    subgraph Persistence
+    subgraph Persistência
         SQLA["SQLAlchemy ORM"]
     end
 
     %% Database
-    subgraph Database
+    subgraph Banco de Dados
         SUPABASE["Supabase PostgreSQL"]
     end
 
@@ -91,7 +91,8 @@ flowchart LR
 
 ---
 
-# Diagrama de Sequência de Login e acesso à rotas protegidas
+# Diagrama de Sequência do login e do acesso às rotas protegidas.
+
 ```mermaid
 sequenceDiagram
     autonumber
