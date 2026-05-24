@@ -40,7 +40,6 @@ A aplicação implementa:
 - Integração entre frontend e backend
 - API assíncrona utilizando FastAPI
 - Persistência de dados com Supabase/PostgreSQL
-- Validação de dados com schemas Pydantic
 
 O sistema foi construído seguindo boas práticas de arquitetura backend e frontend, utilizando validação tipada, autenticação segura e comunicação desacoplada via API REST.
 
@@ -187,6 +186,7 @@ sequenceDiagram
 |---|---|
 | FastAPI | API REST assíncrona |
 | FastAPI Users | Sistema de autenticação |
+| Pydantic | Schemas para validação de dados da requisição|
 | SQLAlchemy | ORM |
 | JWT | Autenticação |
 | Supabase | Banco de dados PostgreSQL |
@@ -209,23 +209,36 @@ sequenceDiagram
 # 📂 Estrutura do Projeto
 
 ```text
-project/
+auth/
 │
 ├── backend/
-│   ├── app/
-│   ├── routes/
-│   ├── schemas/
-│   ├── models/
-│   ├── services/
-│   └── main.py
+│   │
+│   ├── .venv/                 # Virtual environment
+│   ├── app/                   # FastAPI application
+│   │   ├── routes/            # API routes
+│   │   ├── schemas/           # Pydantic schemas
+│   │   ├── models/            # SQLAlchemy models
+│   │   ├── services/          # Business rules and services
+│   │   ├── core/              # Settings, security, config
+│   │   ├── db/                # Database configuration
+│   │   └── main.py            # FastAPI entrypoint
+│   │
+│   ├── .env                   # Environment variables
+│   ├── requirements.txt       # Python dependencies
+│   └── README.md
 │
 ├── frontend/
-│   ├── pages/
-│   ├── components/
-│   ├── composables/
-│   ├── middleware/
-│   └── app.vue
+│   │
+│   ├── pages/                 # Application pages
+│   ├── components/            # Reusable UI components
+│   ├── composables/           # Vue/Nuxt composables
+│   ├── middleware/            # Route middleware
+│   ├── public/                # Static assets
+│   ├── app.vue                # Root component
+│   ├── nuxt.config.ts         # Nuxt configuration
+│   └── package.json           # Node dependencies
 │
+├── .gitignore
 └── README.md
 ```
 
