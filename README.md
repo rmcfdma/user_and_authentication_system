@@ -49,6 +49,50 @@ O sistema foi construído seguindo boas práticas de arquitetura backend e front
 # Arquitetura
 
 ```mermaid
+flowchart LR
+
+    %% Frontend
+    subgraph Frontend
+        NUXT["Nuxt 4"]
+        UI["Nuxt UI"]
+        ZOD["Zod"]
+    end
+
+    %% Backend
+    subgraph Backend
+        FASTAPI["FastAPI"]
+        USERS["FastAPI Users"]
+        JWT["JWT Auth"]
+        PYDANTIC["Pydantic"]
+    end
+
+    %% Persistence
+    subgraph Persistence
+        SQLA["SQLAlchemy ORM"]
+    end
+
+    %% Database
+    subgraph Database
+        SUPABASE["Supabase PostgreSQL"]
+    end
+
+    %% Flow
+    NUXT --> FASTAPI
+    UI --> NUXT
+    ZOD --> NUXT
+
+    FASTAPI --> USERS
+    FASTAPI --> JWT
+    FASTAPI --> PYDANTIC
+    FASTAPI --> SQLA
+
+    SQLA --> SUPABASE
+```
+
+---
+
+# Diagrama de Sequência de Login e acesso à rotas protegidas
+```mermaid
 sequenceDiagram
     autonumber
 
