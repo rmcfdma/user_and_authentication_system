@@ -109,8 +109,8 @@ sequenceDiagram
     %% USER LOGIN FLOW
     %% =========================
 
-    User->>Frontend: Access Login Page
-    Frontend->>Frontend: Validate Form with Zod
+    User->>Frontend: Página de Login
+    Frontend->>Frontend: Validação do formulário com Zod
 
     Frontend->>API: POST /auth/jwt/login
 
