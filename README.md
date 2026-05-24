@@ -49,73 +49,62 @@ O sistema foi construído seguindo boas práticas de arquitetura backend e front
 # Arquitetura
 
 ```mermaid
-flowchart TB
+sequenceDiagram
+    autonumber
+
+    actor User as User
+    participant Frontend as Nuxt Frontend
+    participant API as FastAPI Backend
+    participant Auth as FastAPI Users / JWT
+    participant Validation as Pydantic
+    participant ORM as SQLAlchemy ORM
+    participant DB as Supabase PostgreSQL
 
     %% =========================
-    %% FRONTEND
+    %% USER LOGIN FLOW
     %% =========================
-    subgraph FRONTEND["Frontend Layer"]
-        NUXT["Nuxt 4.4.4"]
-        UI["Nuxt UI 4.7.1"]
-        ZOD["Zod Validation"]
-        PAGES["Authentication & User Management"]
-    end
+
+    User->>Frontend: Access Login Page
+    Frontend->>Frontend: Validate Form with Zod
+
+    Frontend->>API: POST /auth/jwt/login
+
+    API->>Validation: Validate Request Schema
+    Validation-->>API: Validated Data
+
+    API->>Auth: Authenticate User Credentials
+
+    Auth->>ORM: Query User
+    ORM->>DB: SELECT user by email
+    DB-->>ORM: User Data
+    ORM-->>Auth: User Entity
+
+    Auth->>Auth: Verify Password
+    Auth->>Auth: Generate JWT Token
+
+    Auth-->>API: Authenticated User + JWT
+    API-->>Frontend: Return Access Token
+
+    Frontend->>Frontend: Store JWT Token
 
     %% =========================
-    %% API GATEWAY
+    %% AUTHENTICATED REQUEST
     %% =========================
-    API["REST API / HTTPS"]
 
-    %% =========================
-    %% BACKEND
-    %% =========================
-    subgraph BACKEND["Backend Layer"]
-        FASTAPI["FastAPI"]
-        USERS["FastAPI Users"]
-        JWT["JWT Authentication"]
-        PYDANTIC["Pydantic Validation"]
-        SERVICES["Business Logic / Service Layer"]
-    end
+    User->>Frontend: Access Protected Route
 
-    %% =========================
-    %% PERSISTENCE
-    %% =========================
-    subgraph PERSISTENCE["Persistence Layer"]
-        SQLA["SQLAlchemy ORM"]
-        ASYNC["Async DB Sessions"]
-        REPOSITORY["Repository Pattern"]
-    end
+    Frontend->>API: GET /users/me (JWT)
 
-    %% =========================
-    %% DATABASE
-    %% =========================
-    subgraph DATABASE["Database Layer"]
-        SUPABASE["Supabase PostgreSQL"]
-        TABLES["Users & Application Tables"]
-    end
+    API->>Auth: Validate JWT Token
+    Auth-->>API: Authenticated User
 
-    %% =========================
-    %% FLOWS
-    %% =========================
-    FRONTEND --> API
-    API --> BACKEND
-    BACKEND --> PERSISTENCE
-    PERSISTENCE --> DATABASE
+    API->>ORM: Fetch User Data
+    ORM->>DB: SELECT user
+    DB-->>ORM: User Record
+    ORM-->>API: User Object
 
-    %% Internal Backend Flow
-    FASTAPI --> USERS
-    FASTAPI --> JWT
-    FASTAPI --> PYDANTIC
-    FASTAPI --> SERVICES
-
-    %% Persistence Flow
-    SERVICES --> SQLA
-    SQLA --> ASYNC
-    SQLA --> REPOSITORY
-
-    %% Database Flow
-    REPOSITORY --> SUPABASE
-    SUPABASE --> TABLES
+    API-->>Frontend: Return User Data
+    Frontend-->>User: Render Dashboard
 ```
 
 ---
