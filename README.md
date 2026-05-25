@@ -1,12 +1,12 @@
-# Módulo de Atenticação
+# Módulo de Autenticação
 
 Sistema full stack para autenticação e gerenciamento de usuários utilizando FastAPI no backend e Nuxt 4 no frontend, com autenticação JWT, integração com Supabase e arquitetura moderna baseada em APIs.
 
 ---
 
-## Tecnologias Utilizadas
+## 1 - Tecnologias Utilizadas
 
-### Backend
+### 1.1 - Backend
 - Python 3.13
 - FastAPI
 - FastAPI Users
@@ -18,7 +18,7 @@ Sistema full stack para autenticação e gerenciamento de usuários utilizando F
 - Resend
 - Pydantic 
 
-### Frontend
+### 1.2 - Frontend
 - Nuxt 4.4.4
 - Nuxt UI 4.7.1
 - Zod 4.4.3
@@ -26,7 +26,7 @@ Sistema full stack para autenticação e gerenciamento de usuários utilizando F
 
 ---
 
-# Sobre o Projeto
+# 2 - Sobre o Projeto
 
 Este projeto foi desenvolvido com o objetivo de fornecer uma estrutura moderna e escalável para autenticação e gerenciamento de usuários.
 
@@ -45,7 +45,7 @@ O sistema foi construído seguindo boas práticas de arquitetura backend e front
 
 ---
 
-# Arquitetura
+# 3 - Arquitetura
 
 ```mermaid
 flowchart LR
@@ -90,7 +90,7 @@ flowchart LR
 
 ---
 
-# Diagrama de Sequência do login e do acesso às rotas protegidas.
+# 4 - Diagrama de Sequência do login e do acesso às rotas protegidas.
 
 ```mermaid
 sequenceDiagram
@@ -153,23 +153,23 @@ sequenceDiagram
 
 ---
 
-# Funcionalidades
+# 5 - Funcionalidades
 
-## Autenticação
+## 5.1 - Autenticação
 - Login
 - Logout
 - Autenticação JWT
 - Refresh Token
 - Proteção de rotas
 
-## Usuários
+## 5.2 - Usuários
 - Cadastro de usuários
 - Edição de perfil
 - Exclusão de perfil
 - Consulta de perfil
 
 
-## Segurança
+## 5.3 - Segurança
 - Hash de senhas
 - Tokens JWT
 - Validação de dados
@@ -178,9 +178,10 @@ sequenceDiagram
 
 ---
 
-# ⚙️ Backend
 
-## Principais Tecnologias
+# 6 - Principais Tecnologias
+
+## 6.1 - Backend
 
 | Tecnologia | Função |
 |---|---|
@@ -193,9 +194,7 @@ sequenceDiagram
 
 ---
 
-# 💻 Frontend
-
-## Principais Tecnologias
+# 6.2 - Frontend
 
 | Tecnologia | Função |
 |---|---|
@@ -206,7 +205,7 @@ sequenceDiagram
 
 ---
 
-# 📂 Estrutura do Projeto
+# 7 - Estrutura do Projeto
 
 ```text
 auth/
@@ -253,9 +252,9 @@ auth/
 
 ---
 
-# Como Executar o Projeto
+# 8 - Como Executar o Projeto
 
-## Backend
+## 8.1 - Backend
 
 ### Instalar dependências
 
@@ -271,7 +270,7 @@ uvicorn app.main:app --reload
 
 ---
 
-## Frontend
+## 8.2 - Frontend
 
 ### Instalar dependências
 
@@ -287,9 +286,9 @@ npm run dev
 
 ---
 
-# Variáveis de Ambiente
+# 9 - Variáveis de Ambiente
 
-## Backend
+## 9.1 - Backend
 
 ```env
 DATABASE_URL=
@@ -298,7 +297,7 @@ SUPABASE_URL=
 SUPABASE_KEY=
 ```
 
-## Frontend
+## 9.2 - Frontend
 
 ```env
 NUXT_PUBLIC_API_URL=
@@ -306,9 +305,9 @@ NUXT_PUBLIC_API_URL=
 
 ---
 
-# Endpoints Principais
+# 10 - Endpoints Principais
 
-## Auth
+## 10.1 - Auth
 
 ```http
 POST /auth/register                # Rota para cadastro de usuários
@@ -319,7 +318,7 @@ POST /auth/reset-password          # Valida o token de recuperação recebido e 
 POST /auth/verify-request-token    # Solicita o envio do token de verificação de e-mail para confirmação da conta do usuário após o cadastro.
 POST /auth/verify                  # Valida o token de verificação e confirma o e-mail do usuário, marcando a conta como verificada.
 ```
-## Users
+## 10.2 - Users
 
 ```http
 PATCH /users/me                    # Atualiza os dados do usuário atualmente autenticado.
@@ -328,7 +327,7 @@ PATCH /users/{id}                  # Atualiza os dados de um usuário específic
 DELETE /users/{id}                 # Remove um usuário específico do sistema através do ID.
 
 ```
-## Default (Customizada)
+## 10.3 - Default (Customizada)
 
 ```http
 GET /users/me                      # Retorna os dados completos do usuário autenticado atualmente.
@@ -337,7 +336,7 @@ DELETE /users/by-email/{email}     # Remove um usuário do sistema utilizando o 
 ```
 ---
 
-# Objetivos do Projeto
+# 11 - Objetivos do Projeto
 
 - Estudo de arquitetura full stack moderna
 - Implementação de autenticação segura
@@ -347,7 +346,7 @@ DELETE /users/by-email/{email}     # Remove um usuário do sistema utilizando o 
 
 ---
 
-# Melhorias Futuras
+# 12 - Melhorias Futuras
 
 - Refresh token seguro com cookies HTTPOnly
 - Controle de permissões (RBAC)
@@ -359,7 +358,7 @@ DELETE /users/by-email/{email}     # Remove um usuário do sistema utilizando o 
 
 ---
 
-# Conceitos Aplicados
+# 13 - Conceitos Aplicados
 
 - Clean Architecture
 - Dependency Injection
@@ -372,13 +371,13 @@ DELETE /users/by-email/{email}     # Remove um usuário do sistema utilizando o 
 
 ---
 
-# Licença
+# 14 - Licença
 
 Este projeto está sob a licença MIT.
 
 ---
 
-# Autor
+# 15 - Autor
 
 Rodrigo Costa
 
