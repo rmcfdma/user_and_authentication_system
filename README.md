@@ -311,13 +311,13 @@ NUXT_PUBLIC_API_URL=
 ## Auth
 
 ```http
-POST /auth/register
-POST /auth/jwt/login
-POST /auth/jwt/logout
-POST /auth/forgot-password
-POST /auth/reset-password
-POST /auth/verify-request-token
-POST /auth/verify
+POST /auth/register                # Rota para cadastro de usuários
+POST /auth/jwt/login               # Rota para login
+POST /auth/jwt/logout              # Rota para logout
+POST /auth/forgot-password         # Inicia o processo de recuperação de senha enviando um token de redefinição para o e-mail do usuário.
+POST /auth/reset-password          # Valida o token de recuperação recebido e define uma nova senha para o usuário.
+POST /auth/verify-request-token    # Solicita o envio do token de verificação de e-mail para confirmação da conta do usuário após o cadastro.
+POST /auth/verify                  # Valida o token de verificação e confirma o e-mail do usuário, marcando a conta como verificada.
 ```
 ## Users
 
@@ -336,7 +336,7 @@ DELETE /users/by-email/{email}
 ```
 ---
 
-# 🎯 Objetivos do Projeto
+# Objetivos do Projeto
 
 - Estudo de arquitetura full stack moderna
 - Implementação de autenticação segura
@@ -346,7 +346,7 @@ DELETE /users/by-email/{email}
 
 ---
 
-# 📈 Melhorias Futuras
+# Melhorias Futuras
 
 - Refresh token seguro com cookies HTTPOnly
 - Controle de permissões (RBAC)
@@ -358,7 +358,7 @@ DELETE /users/by-email/{email}
 
 ---
 
-# 🛠️ Conceitos Aplicados
+# Conceitos Aplicados
 
 - Clean Architecture
 - Dependency Injection
@@ -381,4 +381,4 @@ Este projeto está sob a licença MIT.
 
 Rodrigo Costa
 
-GitHub: https://github.com/seuusuario
+GitHub: https://github.com/rmcfdma
