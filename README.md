@@ -194,7 +194,7 @@ sequenceDiagram
 
 ---
 
-# 6.2 - Frontend
+## 6.2 - Frontend
 
 | Tecnologia | Função |
 |---|---|
@@ -295,6 +295,7 @@ DATABASE_URL=
 SECRET=
 SUPABASE_URL=
 SUPABASE_KEY=
+RESEND_API_KEY=
 ```
 
 ## 9.2 - Frontend
