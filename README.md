@@ -216,9 +216,15 @@ auth/
 │   ├── .venv/                 # Virtual environment
 │   ├── app/                   # FastAPI application
 │   │   ├── routes/            # API routes
+│   │   │   ├── auth.py        # Imagens e etc.
+│   │   │   ├── user.py        # Imagens e etc.
 │   │   ├── schemas/           # Pydantic schemas
-│   │   ├── models/            # Modelos do SQLAlchemy 
+│   │   │   ├── user.py        # Imagens e etc.
+│   │   ├── models/            # Modelos do SQLAlchemy
+│   │   │   ├── base.py        # Imagens e etc.
+│   │   │   ├── user.py        # Imagens e etc.
 │   │   ├── services/          # Regra de negócio e serviços
+│   │   │   ├── email.py       # Imagens e etc.
 │   │   ├── auth/              # Imagens e etc.
 │   │   │   ├── user.py        # Imagens e etc.
 │   │   ├── static/            # Imagens e etc.
