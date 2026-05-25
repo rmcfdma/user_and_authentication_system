@@ -226,7 +226,7 @@ auth/
 │   │   ├── services/          # Regra de negócio e serviços
 │   │   │   ├── email.py       # Imagens e etc.
 │   │   ├── auth/              # Imagens e etc.
-│   │   │   ├── user.py        # Imagens e etc.
+│   │   │   ├── user.py        # Configuração central do sistema de autenticação e gerenciamento de usuários utilizando FastAPI Users, JWT, SQLAlchemy assíncrono e PostgreSQL.
 │   │   ├── static/            # Imagens e etc.
 │   │   ├── db.py              # Configuração do Banco de Dados
 │   │   ├── create_db.py       # Criação do Banco de Dados
