@@ -372,13 +372,13 @@ DELETE /users/by-email/{email}     # Remove um usuário do sistema utilizando o 
 
 ---
 
-# 📄 Licença
+# Licença
 
 Este projeto está sob a licença MIT.
 
 ---
 
-# 👨‍💻 Autor
+# Autor
 
 Rodrigo Costa
 
