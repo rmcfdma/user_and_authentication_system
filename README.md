@@ -339,11 +339,11 @@ DELETE /users/by-email/{email}     # Remove um usuário do sistema utilizando o 
 
 # 11 - Objetivos do Projeto
 
-- Estudo de arquitetura full stack moderna
-- Implementação de autenticação segura
-- Integração entre FastAPI e Nuxt
+- Estudo de arquitetura full stack moderna 
+- Implementação de autenticação segura utilizando tokens JWT
+- Integração entre backend Python (FastApi) e frontend Vue (Nuxt 4)
 - Utilização de APIs assíncronas
-- Aplicação de boas práticas de desenvolvimento
+- Aplicação de boas práticas de desenvolvimento (OO, ORM e Injeção de Dependência)
 
 ---
 
@@ -359,26 +359,72 @@ DELETE /users/by-email/{email}     # Remove um usuário do sistema utilizando o 
 
 ---
 
-# 13 - Conceitos Aplicados
+# 13 - Boas Práticas e Conceitos Aplicados
 
-- Clean Architecture
-- Dependency Injection
-- Async Programming
-- JWT Authentication
-- ORM
-- API REST
-- Schema Validation
-- Type Safety
+- Arquitetura separada entre frontend e backend
+- Organização modular por responsabilidades
+- Validação de dados com Pydantic e Zod
+- Autenticação segura com JWT
+- Gerenciamento de usuários com FastAPI Users
+- Uso de variáveis de ambiente com `.env`
+- ORM com SQLAlchemy para abstração do banco de dados
+- Banco PostgreSQL relacional via Supabase
+- Sessões assíncronas com Async SQLAlchemy
+- Padronização de schemas de entrada e saída
+- Separação entre regras de negócio, rotas e persistência
+- Sistema de verificação de e-mail
+- Sistema de recuperação de senha
+- Middleware de autenticação no frontend
+- Componentização da interface com Nuxt UI
+- Estrutura preparada para escalabilidade
+- Documentação automática da API com Swagger/OpenAPI
+- Utilização de tipagem forte com Type Hints
+- Uso de Git e GitHub para versionamento
+- Uso de Orientação a Objetos
+- Configuração de arquivos sensíveis via `.gitignore`
 
 ---
 
-# 14 - Licença
+## 14 - Padrões de Projeto Aplicados
+
+- Layered Architecture
+  Separação da aplicação em frontend, backend, serviços e persistência.
+
+- Dependency Injection
+  Utilização do sistema de dependências do FastAPI através do `Depends()`.
+
+- Repository Pattern
+  Abstração do acesso ao banco de dados utilizando SQLAlchemy e FastAPI Users.
+
+- Service Layer Pattern
+  Separação das regras de negócio em serviços dedicados.
+
+- DTO (Data Transfer Object)
+  Uso de schemas Pydantic para transferência e validação de dados.
+
+- Factory Pattern
+  Criação de sessões e estratégias JWT através de funções/factories.
+
+- Singleton Pattern
+  Configuração centralizada da aplicação e instâncias compartilhadas.
+
+- Middleware Pattern
+  Interceptação de requisições e autenticação via middleware/backend JWT.
+
+- ORM Pattern
+  Mapeamento objeto-relacional utilizando SQLAlchemy.
+
+- RESTful API Design
+  Organização das rotas seguindo princípios REST.
+---
+
+# 15 - Licença
 
 Este projeto está sob a licença MIT.
 
 ---
 
-# 15 - Autor
+# 16 - Autor
 
 Rodrigo Costa
 
