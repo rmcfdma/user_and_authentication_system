@@ -216,16 +216,16 @@ auth/
 │   ├── .venv/                 # Virtual environment
 │   ├── app/                   # FastAPI application
 │   │   ├── routes/            # API routes
-│   │   │   ├── auth.py        # Imagens e etc.
-│   │   │   ├── user.py        # Imagens e etc.
+│   │   │   ├── auth.py        # Rotas para autenticação.
+│   │   │   ├── user.py        # Rotas para regrenciamento do usuário.
 │   │   ├── schemas/           # Pydantic schemas
-│   │   │   ├── user.py        # Imagens e etc.
+│   │   │   ├── user.py        # Schema pydantic do usuário.
 │   │   ├── models/            # Modelos do SQLAlchemy
-│   │   │   ├── base.py        # Imagens e etc.
-│   │   │   ├── user.py        # Imagens e etc.
+│   │   │   ├── base.py        # Modelo base a ser importado por todos os modelos.
+│   │   │   ├── user.py        # Modelo do usuário criado pelo FastApi Users com algumas modificações.
 │   │   ├── services/          # Regra de negócio e serviços
-│   │   │   ├── email.py       # Imagens e etc.
-│   │   ├── auth/              # Imagens e etc.
+│   │   │   ├── email.py       # Código para tratamento de emails de confirmação com resend.
+│   │   ├── auth/              # Configuração do sistema de autenticação.
 │   │   │   ├── user.py        # Configuração central do sistema de autenticação e gerenciamento de usuários utilizando FastAPI Users, JWT, SQLAlchemy assíncrono e PostgreSQL.
 │   │   ├── static/            # Imagens e etc.
 │   │   ├── db.py              # Configuração do Banco de Dados
@@ -253,7 +253,7 @@ auth/
 
 ---
 
-# 🚀 Como Executar o Projeto
+# Como Executar o Projeto
 
 ## Backend
 
@@ -287,7 +287,7 @@ npm run dev
 
 ---
 
-# 🔑 Variáveis de Ambiente
+# Variáveis de Ambiente
 
 ## Backend
 
@@ -306,26 +306,34 @@ NUXT_PUBLIC_API_URL=
 
 ---
 
-# 📡 Endpoints Principais
+# Endpoints Principais
 
 ## Auth
 
 ```http
 POST /auth/register
 POST /auth/jwt/login
+POST /auth/jwt/logout
 POST /auth/forgot-password
 POST /auth/reset-password
+POST /auth/verify-request-token
 POST /auth/verify
 ```
-
 ## Users
 
 ```http
-GET /users/me
 PATCH /users/me
 GET /users/{id}
+PATCH /users/{id}
+DELETE /users/{id}
 ```
+## Default (Customizada)
 
+```http
+GET /users/me
+GET /users/by-email/{email}
+DELETE /users/by-email/{email}
+```
 ---
 
 # 🎯 Objetivos do Projeto
