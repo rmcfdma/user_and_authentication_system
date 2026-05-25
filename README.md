@@ -387,35 +387,17 @@ DELETE /users/by-email/{email}     # Remove um usuário do sistema utilizando o 
 
 ## 14 - Padrões de Projeto Aplicados
 
-- Layered Architecture
-  Separação da aplicação em frontend, backend, serviços e persistência.
+- Layered Architecture: Separação da aplicação em frontend, backend, serviços e persistência.
+- Dependency Injection: Utilização do sistema de dependências do FastAPI através do `Depends()`.
+- Repository Pattern: Abstração do acesso ao banco de dados utilizando SQLAlchemy e FastAPI Users.
+- Service Layer Pattern: Separação das regras de negócio em serviços dedicados.
+- DTO (Data Transfer Object): Uso de schemas Pydantic para transferência e validação de dados.
+- Factory Pattern: Criação de sessões e estratégias JWT através de funções/factories.
+- Singleton Pattern: Configuração centralizada da aplicação e instâncias compartilhadas.
+- Middleware Pattern: Interceptação de requisições e autenticação via middleware/backend JWT.
+- ORM Pattern: Mapeamento objeto-relacional utilizando SQLAlchemy.
+- RESTful API Design: Organização das rotas seguindo princípios REST.
 
-- Dependency Injection
-  Utilização do sistema de dependências do FastAPI através do `Depends()`.
-
-- Repository Pattern
-  Abstração do acesso ao banco de dados utilizando SQLAlchemy e FastAPI Users.
-
-- Service Layer Pattern
-  Separação das regras de negócio em serviços dedicados.
-
-- DTO (Data Transfer Object)
-  Uso de schemas Pydantic para transferência e validação de dados.
-
-- Factory Pattern
-  Criação de sessões e estratégias JWT através de funções/factories.
-
-- Singleton Pattern
-  Configuração centralizada da aplicação e instâncias compartilhadas.
-
-- Middleware Pattern
-  Interceptação de requisições e autenticação via middleware/backend JWT.
-
-- ORM Pattern
-  Mapeamento objeto-relacional utilizando SQLAlchemy.
-
-- RESTful API Design
-  Organização das rotas seguindo princípios REST.
 ---
 
 # 15 - Licença
