@@ -217,13 +217,16 @@ auth/
 │   ├── app/                   # FastAPI application
 │   │   ├── routes/            # API routes
 │   │   ├── schemas/           # Pydantic schemas
-│   │   ├── models/            # SQLAlchemy models
-│   │   ├── services/          # Business rules and services
-│   │   ├── core/              # Settings, security, config
-│   │   ├── db/                # Database configuration
+│   │   ├── models/            # Modelos do SQLAlchemy 
+│   │   ├── services/          # Regra de negócio e serviços
+│   │   ├── auth/              # Imagens e etc.
+│   │   │   ├── user.py        # Imagens e etc.
+│   │   ├── static/            # Imagens e etc.
+│   │   ├── db.py              # Configuração do Banco de Dados
+│   │   ├── create_db.py       # Criação do Banco de Dados
+│   │   ├── config.py          # Schema pydantic para as variáveis de ambiente
 │   │   └── main.py            # FastAPI entrypoint
 │   │
-│   ├── .env                   # Environment variables
 │   ├── requirements.txt       # Python dependencies
 │   └── README.md
 │
