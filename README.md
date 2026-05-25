@@ -322,17 +322,18 @@ POST /auth/verify                  # Valida o token de verificação e confirma 
 ## Users
 
 ```http
-PATCH /users/me
-GET /users/{id}
-PATCH /users/{id}
-DELETE /users/{id}
+PATCH /users/me                    # Atualiza os dados do usuário atualmente autenticado.
+GET /users/{id}                    # Retorna os dados de um usuário específico através do ID.
+PATCH /users/{id}                  # Atualiza os dados de um usuário específico através do ID.
+DELETE /users/{id}                 # Remove um usuário específico do sistema através do ID.
+
 ```
 ## Default (Customizada)
 
 ```http
-GET /users/me
-GET /users/by-email/{email}
-DELETE /users/by-email/{email}
+GET /users/me                      # Retorna os dados completos do usuário autenticado atualmente.
+GET /users/by-email/{email}        # Busca e retorna um usuário específico através do endereço de e-mail.
+DELETE /users/by-email/{email}     # Remove um usuário do sistema utilizando o endereço de e-mail.
 ```
 ---
 
