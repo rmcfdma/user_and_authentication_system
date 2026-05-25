@@ -308,7 +308,7 @@ NUXT_PUBLIC_API_URL=
 
 # 10 - Endpoints Principais
 
-## 10.1 - Auth
+## 10.1 - Autenticação (FastApi Users)
 
 ```http
 POST /auth/register                # Rota para cadastro de usuários
@@ -319,7 +319,7 @@ POST /auth/reset-password          # Valida o token de recuperação recebido e 
 POST /auth/verify-request-token    # Solicita o envio do token de verificação de e-mail para confirmação da conta do usuário após o cadastro.
 POST /auth/verify                  # Valida o token de verificação e confirma o e-mail do usuário, marcando a conta como verificada.
 ```
-## 10.2 - Users
+## 10.2 - Usuários (FastApi Users)
 
 ```http
 PATCH /users/me                    # Atualiza os dados do usuário atualmente autenticado.
@@ -328,7 +328,7 @@ PATCH /users/{id}                  # Atualiza os dados de um usuário específic
 DELETE /users/{id}                 # Remove um usuário específico do sistema através do ID.
 
 ```
-## 10.3 - Default (Customizada)
+## 10.3 - Customizadas
 
 ```http
 GET /users/me                      # Retorna os dados completos do usuário autenticado atualmente.
